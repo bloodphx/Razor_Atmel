@@ -51,7 +51,7 @@ extern volatile u32 G_u32ApplicationFlags;             /* From main.c */
 
 extern volatile u32 G_u32SystemTime1ms;                /* From board-specific source file */
 extern volatile u32 G_u32SystemTime1s;                 /* From board-specific source file */
-
+int u16BlinkCount;
 
 /***********************************************************************************************************************
 Global variable definitions with scope limited to this local application.
@@ -118,6 +118,68 @@ Promises:
 */
 void UserApp1RunActiveState(void)
 {
+   LedOff(WHITE);
+   LedOff(PURPLE);
+   LedOff(BLUE);
+   LedOff(CYAN);
+   LedOff(GREEN);
+   LedOff(YELLOW);
+   LedOff(ORANGE);
+   LedOff(RED);
+   while(1)
+   {
+     u16BlinkCount++;
+     if(u16BlinkCount>=0 && u16BlinkCount<20000)
+     {
+       LedPWM(WHITE, LED_PWM_100);
+       LedOn(WHITE);
+       LedOff(RED);
+     }
+     if(u16BlinkCount >= 20000&& u16BlinkCount<=35000)
+     {
+       LedPWM(PURPLE, LED_PWM_80);
+       LedOff(WHITE);
+       LedOn(PURPLE);
+     }  
+     if(u16BlinkCount >= 35000 && u16BlinkCount<=45000 )
+     {
+       LedPWM(BLUE, LED_PWM_70);
+       LedOff(PURPLE);
+       LedOn(BLUE);
+     }  
+     
+     if(u16BlinkCount >= 45000 && u16BlinkCount<=53000 )
+     {
+       LedPWM(CYAN, LED_PWM_60);
+       LedOff(BLUE);
+       LedOn(CYAN);
+     } 
+     if(u16BlinkCount >= 53000 && u16BlinkCount<=60000)
+     {
+       LedPWM(GREEN, LED_PWM_50);
+       LedOff(CYAN);
+       LedOn(GREEN);
+     } 
+     if(u16BlinkCount >= 60000 && u16BlinkCount<=66000)
+     {
+       LedPWM(YELLOW, LED_PWM_40);
+       LedOff(GREEN);
+       LedOn(YELLOW);
+     } 
+     if(u16BlinkCount >= 66000 && u16BlinkCount<=70000)
+     {
+       LedPWM(ORANGE, LED_PWM_30);
+       LedOff(YELLOW);
+       LedOn(ORANGE);
+     }
+     if(u16BlinkCount >= 70000 &&  u16BlinkCount<=72000)
+     {
+       LedPWM(RED, LED_PWM_20);
+       LedOff(ORANGE);
+       LedOn(RED);
+       u16BlinkCount=0;
+     }
+   }
   UserApp1_StateMachine();
 
 } /* end UserApp1RunActiveState */
@@ -143,12 +205,16 @@ static void UserApp1SM_Idle(void)
 /*-------------------------------------------------------------------------------------------------------------------*/
 /* Handle an error */
 static void UserApp1SM_Error(void)          
-{
-  
+{  
+
 } /* end UserApp1SM_Error() */
+
+
 
 
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* End of File                                                                                                        */
 /*--------------------------------------------------------------------------------------------------------------------*/
+
+

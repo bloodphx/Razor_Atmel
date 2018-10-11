@@ -19,7 +19,7 @@ volatile u32 G_u32ApplicationFlags = 0;                /* Global applications fl
 /* External global variables defined in other files (must indicate which file they are defined in) */
 extern volatile u32 G_u32SystemTime1ms;                /* From board-specific source file */
 extern volatile u32 G_u32SystemTime1s;                 /* From board-specific source file */
-
+//int u16BlinkCount=0;
 
 /***********************************************************************************************************************
 Global variable definitions with scope limited to this local application.
@@ -109,8 +109,58 @@ void main(void)
     HEARTBEAT_OFF();
     SystemSleep();
     HEARTBEAT_ON();
-    
-  } /* end while(1) main super loop */
+//     u16BlinkCount++;
+//     if(u16BlinkCount>=0 && u16BlinkCount<2000)
+//     {
+//       LedPWM(WHITE, LED_PWM_100);
+//       LedOn(WHITE);
+//       LedOff(RED);
+//     }
+//     if(u16BlinkCount >= 2000&& u16BlinkCount<=3500)
+//     {
+//       LedPWM(PURPLE, LED_PWM_80);
+//       LedOff(WHITE);
+//       LedOn(PURPLE);
+//     }  
+//     if(u16BlinkCount >= 3500 && u16BlinkCount<=4500 )
+//     {
+//       LedPWM(BLUE, LED_PWM_70);
+//       LedOff(PURPLE);
+//       LedOn(BLUE);
+//     }  
+//     
+//     if(u16BlinkCount >= 4500 && u16BlinkCount<=5300 )
+//     {
+//       LedPWM(CYAN, LED_PWM_60);
+//       LedOff(BLUE);
+//       LedOn(CYAN);
+//     } 
+//     if(u16BlinkCount >= 5300 && u16BlinkCount<=6000)
+//     {
+//       LedPWM(GREEN, LED_PWM_50);
+//       LedOff(CYAN);
+//       LedOn(GREEN);
+//     } 
+//     if(u16BlinkCount >= 6000 && u16BlinkCount<=6600)
+//     {
+//       LedPWM(YELLOW, LED_PWM_40);
+//       LedOff(GREEN);
+//       LedOn(YELLOW);
+//     } 
+//     if(u16BlinkCount >= 6600 && u16BlinkCount<=7000)
+//     {
+//       LedPWM(ORANGE, LED_PWM_30);
+//       LedOff(YELLOW);
+//       LedOn(ORANGE);
+//     }
+//     if(u16BlinkCount >= 7000 &&  u16BlinkCount<=7200)
+//     {
+//       LedPWM(RED, LED_PWM_20);
+//       LedOff(ORANGE);
+//       LedOn(RED);
+//       u16BlinkCount=0;
+//     }
+   } /* end while(1) main super loop */
   
 } /* end main() */
 
